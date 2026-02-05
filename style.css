@@ -1,0 +1,163 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Stone100: hsl(30, 54%, 90%);
+    --Stone150: hsl(30, 18%, 87%);
+    --Stone600: hsl(30, 10%, 34%);
+    --Stone900: hsl(24, 5%, 18%);
+    --Brown800: hsl(14, 45%, 36%);
+    --Rose800: hsl(332, 51%, 32%);
+    --Rose50: hsl(330, 100%, 98%);
+}
+
+* {
+    box-sizing: border-box; 
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center; /* Vertikálne centrovanie */
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    gap: 0.5rem; /* Medzera medzi kartou a pätkou */
+}
+
+img {
+    max-width: 100%; 
+    height: auto;
+    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
+    margin: 0;
+}
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Vertikálne centrovanie */
+    margin: 0 auto; /* Toto kartu vycentruje vodorovne */
+    width: 100%;
+    max-width: 24rem;
+}
+
+.recipe-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Vertikálne centrovanie */
+    margin: 0 auto; /* Toto kartu vycentruje vodorovne */
+    width: 100%;
+    max-width: 24rem;
+    padding: 1.75rem 1.75rem 0 2rem;
+}
+
+h1 {
+    font-size: 2.25rem;     
+    color: var(--Stone900);
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Young Serif', sans-serif;
+    line-height: 1;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0;
+    padding-block-start: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--Stone600);
+}
+
+.preparation-time {
+    background-color: var(--Rose50); /* Svetloružové pozadie */
+    /* Tento zápis vytvorí ten efekt vrstvenia */
+    box-shadow: 
+        0.2rem -0.2rem var(--Rose50);
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    padding-top: 1.1rem;
+    padding-left: 1.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 1rem;
+    border-radius: 0.75rem;
+    width: calc(100% - 4.2rem); /* Zabezpečí, že box nepretečie kvôli marginu */ 
+}
+
+h3 {
+    color: var(--Rose800);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;   
+}
+
+/* 1. Základné nastavenie kontajnerov (ul a ol) */
+ul, ol {
+    margin-top: 0.85rem; /* Zmenšené z 1.5rem */
+    margin-bottom: 0;
+    padding-left: 0.4rem;    /* Priestor, v ktorom "bývajú" odrážky */
+    list-style-position: outside; /* Odrážka je mimo textu (štandard) */
+}
+
+li:first-child {
+    line-height: 1.55;
+    display: list-item;
+}
+
+/* Odstránenie spodného marginu pri poslednej položke */
+li:last-child {
+    margin-bottom: 0;
+}
+
+.preparation-time li {
+    list-style: none;      /* Skryjeme pôvodnú bodku */
+    position: relative;    /* Základňa pre našu novú bodku */
+    padding-left: 2.1rem;  /* Priestor pre bodku vľavo */
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--Stone600);
+}
+
+.preparation-time li::before {
+    content: "•";          /* Naša bodka */
+    color: var(--Rose800);
+    position: absolute;    /* Umožní nám s ňou hýbať nezávisle od textu */
+    
+    /* CENTROVANIE BODKY: */
+    left: 0;               /* Bodka úplne vľavo v tom paddingu */
+    top: 50%;              /* Posunie bodku do stredu výšky */
+    transform: translateY(-50%); /* Presne vycentruje stred bodky na stred riadkov */
+    
+    font-size: 1.5rem;     /* Veľkosť bodky */
+    line-height: 1;
+}
+
+/* 3. Špeciálne farby pre bodky a čísla (pomocou ::marker) */
+
+/* Ružové bodky pre Preparation Time */
+.preparation-time li::marker {
+    color: var(--Rose800);
+    font-size: 0.8rem;       /* Ak chceš bodky trochu menšie/väčšie */
+}
+
+/* Hnedé bodky pre Ingredients */
+.ingredients li::marker {
+    color: var(--Brown800);
+}
+
+/* Hnedé tučné čísla pre Instructions */
+.instructions li::marker {
+    color: var(--Brown800);
+    font-weight: bold;       /* Čísla v postupe bývajú v návodoch výraznejšie */
+}
+
+.attribution { 
+    font-size: 0.6875rem; 
+    text-align: center; 
+}
+
+.attribution-link { 
+    color: var(--Blue); 
+}
