@@ -25,13 +25,6 @@ body {
     gap: 0.5rem; /* Medzera medzi kartou a pätkou */
 }
 
-img {
-    max-width: 100%; 
-    height: auto;
-    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
-    margin: 0;
-}
-
 .recipe-card {
     display: flex;
     flex-direction: column;
@@ -39,6 +32,14 @@ img {
     margin: 0 auto; /* Toto kartu vycentruje vodorovne */
     width: 100%;
     max-width: 24rem;
+}
+
+img {
+    max-width: 100%; 
+    height: auto;
+    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
+    margin: 0;
+    padding-bottom: 0.75rem;
 }
 
 .recipe-page {
@@ -160,4 +161,46 @@ li:last-child {
 
 .attribution-link { 
     color: var(--Blue); 
+}
+
+/* Desktop Styles (Larger screens (min-width: 768px) (tablety a desktopy)) */
+@media (min-width: 48rem)  /* 48rem = 768px  */ {
+    body {
+        background-color: var(--Stone100);
+        padding: 7.7rem 0; /* Trochu miesta hore a dole */
+    }
+    
+    .recipe-card {    
+        background-color: var(--White);
+        border-radius: 1.5rem; /* Zaoblené rohy na bielej karte */    
+        max-width: 46rem; /* Karta sa roztiahne, ale nie príliš */        
+    }
+
+    .recipe-page {
+        max-width: 46rem;
+        padding: 0.1rem 1.75rem 0 2.5rem;
+    }
+
+    img {
+        border-radius: 3.25rem; /* Obrázok už nie je na celú šírku, ale má rohy */
+        display: block;
+        padding: 2.5rem 2.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        padding-block-start: 1.41rem;
+    }
+
+    .preparation-time {
+        margin-left: 2.5rem;
+        margin-top: 2.2rem;
+        padding-left: 1.75rem;
+        padding-top: 1.35rem;
+        padding-bottom: 1.4rem;
+        width: calc(100% - 5.2rem); /* Zabezpečí, že box nepretečie kvôli marginu */ 
+    }
 }
