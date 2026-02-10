@@ -27,6 +27,21 @@ body {
     gap: 0.5rem;
 }
 
+img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
+    border-radius: clamp(0rem, (100vw - 30rem) * 5, 0.75rem);
+}
+
+h2 {
+    font-family: 'Young Serif', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--Brown800);
+    margin: 0;
+}
+
 .recipe-card {
     display: flex;
     flex-direction: column;
@@ -45,13 +60,6 @@ body {
     margin: 0 auto;
     padding-block-start: clamp(0rem, 10vw - 4rem, 2.5rem);    
     padding-inline: clamp(0rem, 10vw - 4rem, 2.5rem);
-}
-
-img {
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover;    /* Zabezpečí, že sa obrázok pri zmene pomeru nezdeformuje */
-    border-radius: clamp(0rem, (100vw - 30rem) * 5, 0.75rem);
 }
 
 .recipe-page {
@@ -93,14 +101,6 @@ img {
     margin-inline: clamp(2rem, 5vw, 2.5rem);   
     padding-block-start: clamp(1.15rem, 2vw, 1.4rem);
     padding-inline-start: clamp(1.5rem, 2vw, 1.75rem);
-}
-
-h2 {
-    font-family: 'Young Serif', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 400;
-    color: var(--Brown800);
-    margin: 0;
 }
 
 .preparation-time h2 {
@@ -304,6 +304,11 @@ tr {
     line-height: 1.65;
 }
 
+td {
+    padding-block-start: 0.6rem;
+    padding-block-end: 0.7rem;    
+}
+
 tr:first-child {
     line-height: 1.5;      
 }
@@ -311,11 +316,6 @@ tr:first-child {
 
 tr:last-child {
     border-block-end: none;
-}
-
-td {
-    padding-block-start: 0.6rem;
-    padding-block-end: 0.7rem;    
 }
 
 td:first-child {
